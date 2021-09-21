@@ -10,7 +10,6 @@
 | password           | string              | null: false             |
 | name               | string              | null: false             |
 | profile            | text                | null: false             |
-| director           | text                | null: false             |
 | position           | text                | null: false             |
 
 ### Association
