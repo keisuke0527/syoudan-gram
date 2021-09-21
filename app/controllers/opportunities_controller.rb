@@ -4,8 +4,12 @@ class OpportunitiesController < ApplicationController
   end
 
   def new
-    @opportunitie = Opportunitie.new
+    @opportunity = Opportunity.new
   end 
 
-  
+  def create
+
+  end
+
+
 end

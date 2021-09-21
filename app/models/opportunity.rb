@@ -8,5 +8,6 @@ class Opportunity < ApplicationRecord
   with_options numericality: { other_than: 1 } do
     validates :phase_id
     validates :motivation_id
+  end
 end
 
