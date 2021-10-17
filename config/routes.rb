@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'opportunities#index'
-  
   devise_for :users
-  resources :opportunities, only: [:index, :new, :create]
-
+  
+  root to: "opportunities#index"
+  
+  resources :opportunities, only: [:index, :new, :create,:show]
+  resources :users, only: :show
 end

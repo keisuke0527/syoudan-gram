@@ -1,4 +1,8 @@
 class Opportunity < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :user
+  belongs_to :phase 
+  belongs_to :motivation
 
   with_options presence: true do
     validates :title

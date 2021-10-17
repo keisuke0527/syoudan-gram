@@ -1,0 +1,19 @@
+    
+  <% if user_signed_in? %>
+      <div class="greeting">
+        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link%>
+        <div class="side__image">
+        <%= image_tag current_user.image , class: :side__image %>
+        </div>
+      </div>
+    <% end %>
+
+<div class="rooms"> 
+    <% current_user.opportunities.each do |opportunity| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to opportunity.title, root_path(opportunity) %>
+      </div>
+    </div>
+  <% end %>
+  </div>
