@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card__body">
+    <%= link_to opportunity.title, opportunity_path(opportunity), class: :text__title%>
+    <p class="card__summary">
+      <%= opportunity.bottle_neck %>
+    </p>
+    <%= link_to "by #{opportunity.user.name}", user_path(opportunity.user), class: :card__user %>
+  </div>
+</div>

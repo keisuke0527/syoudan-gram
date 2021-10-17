@@ -1,9 +1,12 @@
 <main class="main">
-  <div class="inner">
-      <div class="greeting">
-        こんにちは、
-      </div>
-    <div class="card__wrapper">
+  <div class="wrapper">
+    <div class="chat-side">
+        <%= render "side_bar" %>
     </div>
+    <div class="chat-main">
+    <div class="card__wrapper">
+     <%= render partial: 'opportunity', collection: @opportunities %>
+    </div>
+   </div>
   </div>
 </main>

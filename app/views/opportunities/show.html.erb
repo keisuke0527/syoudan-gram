@@ -1,0 +1,40 @@
+<main class="main">
+  <div class="wrapper">
+    <div class="chat-side">
+        <%= render "side_bar" %>
+    </div>
+
+  <div class="demo">
+    <div class="demo__wrapper">
+      <p class="demo__hedding">商談詳細</p>
+      <div class="demo__body">
+          <p class="demo__caption">商談タイトル</p>
+          <p class="demo__title">
+            <%= @opportunity.title %>
+          </p>
+
+          <p class="demo__caption">商談フェーズ</p>
+           <p class="demo__neck">
+            <%= @opportunity.bottle_neck %>
+           </p>
+
+          <p class="demo__caption">熱さレベル</p>
+           <p class="demo__neck">
+             <%= @opportunity.bottle_neck %>
+           </p>
+
+          <p class="demo__caption">ネックになっている事</p>
+           <p class="demo__neck">
+             <%= @opportunity.bottle_neck %>
+           </p>
+        
+          <p class="demo__caption">次のアクション</p>
+           <p class="demo__next">
+             <%= @opportunity.next_action %>
+          </p>
+       </div>
+     </div>
+  </div>
+</main>
+
+
