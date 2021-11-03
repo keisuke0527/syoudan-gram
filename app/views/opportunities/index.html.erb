@@ -1,12 +1,92 @@
 <main class="main">
   <div class="wrapper">
+  <% if user_signed_in? %>
     <div class="chat-side">
         <%= render "side_bar" %>
     </div>
     <div class="chat-main">
-    <div class="card__wrapper">
-     <%= render partial: 'opportunity', collection: @opportunities %>
+      <h3 style="border-bottom: 1px solid #426579;border-left: 10px solid #426579;padding: 7px; margin: 3px;">KPI（Key Performance Indicator／重要業績評価指標）</h3>
+       <div class="main_header">
+        <div class ="date">
+          <h3 style="border-bottom: 1px solid  #880088;border-left: 10px solid   #995588;padding: 7px; margin: 3px;">状況別</h3>
+
+          <%= pie_chart Opportunity.group(:phase_id).count, id: "column-chart", width: "200px", height: "200px", colors: ["#D199FF", "#FFBA66", "#666"] %>
+            <table class="date_table">  
+            <tr>
+              <th class="date__col1"></th>
+              <td class="date__col2">案内前</td>
+            </tr>
+             <tr>
+              <th class="date__col3"></th>
+              <td class="date__col2">案内後</td>
+            </tr>
+            <tr>
+              <th class="date__col4"></th>
+              <td class="date__col2">前向き検討</td>
+            </tr>
+            </table>
+           </div>
+          <div class ="date_right">
+           <h3 style="border-bottom: 1px solid #426579;border-left: 10px solid  #995588;padding: 7px; margin: 3px;">目標</h3>
+
+          <%= bar_chart [['目標', 7], ['契約数', 3]],id: "col-chart", width: "300px", height: "200px", colors: ["#D199FF", "#FFBA66", "#666"] %>
+          <div class="right">
+           <div class="java">
+            <script language="JavaScript"><!--
+              StartDay="2021/10/1";  
+                setDay=new Date();
+                targetDay=new Date(StartDay);
+                pass =Math.floor((setDay-targetDay)/1000/60/60/24);
+                document.write("10月に入ってから【");
+                document.write(pass);
+                document.write("】日経過！！");
+            </script>
+             </div>
+            <table class="right_table">  
+            <tr>
+              <th class="right__col1">今月の目標期限</th>
+              <td class="right__col2">
+              <script Language="JavaScript">
+                function xDay(y,m,d)
+                {
+	                today = new Date();
+	                xday  = new Date(y,m-1,d);
+	                dayMS = 24*60*60*1000;
+	                n = Math.floor((xday.getTime()-today.getTime())/dayMS)+1;
+	                document.write(n);
+                  }
+                </script>
+                  残り
+                <script language="JavaScript">
+                  xDay(2021,10,31);
+                  </script>
+                  日
+              </td>
+            </tr>
+             <tr>
+              <th class="right__col1">今月の目標数</th>
+              <td class="right__col2">【7】件</td>
+            </tr>
+            <tr>
+              <th class="right__col1">現在の契約数</th>
+              <td class="right__col2">【5】件</td>
+            </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <h3 style="border-bottom: 1px solid #426579;border-left: 10px solid #426579;padding: 7px;">商談一覧</h3>
+         <div class="card__wrapper">
+         
+         <%= render partial: 'opportunity', collection: @opportunities %>
+
     </div>
    </div>
+   <% else %>
+       <%= image_tag 'p.png' %>
+   <% end %>
+
   </div>
 </main>
+
+

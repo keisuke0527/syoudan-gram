@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root to: "opportunities#index"
   
-  resources :opportunities, only: [:index, :new, :create,:show]
-  resources :users, only: :show
+  resources :opportunities do
+    resources :comments, only: :create
+  end 
+   resources :users, only: :show
 end

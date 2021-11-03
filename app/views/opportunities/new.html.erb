@@ -4,11 +4,22 @@
     <div class="form__wrapper">
       <h2 class="page-heading">商談登録</h2>
 
-      <%= form_with model:@opportunity, url: opportunities_path, local: true do |f| %>
+      <%= form_with model:@opportunity, local: true do |f| %>
+         <%= render 'layouts/error_messages', model: f.object %>
 
         <div class="field">
           <%= f.label :title, "タイトル" %><br />
           <%= f.text_area :title,class: :form__text %>
+        </div>
+
+         <div class="field">
+          <%= f.label :phase_id, "商談フェーズ" %><br />
+          <%= f.collection_select(:phase_id,Phase.all, :id, :name, {}, {class:"select-box"}) %>
+        </div>
+
+         <div class="field">
+          <%= f.label :motivation_id, "熱さレベル" %><br />
+          <%= f.collection_select(:motivation_id,Motivation.all, :id, :name, {}, {class:"select-box"}) %>
         </div>
 
         <div class="field">
@@ -20,17 +31,6 @@
           <%= f.label :next_action, "次のアクション" %><br />
           <%= f.text_area :next_action, class: :form__text %>
         </div>
-
-        <div class="field">
-        <%= f.label :phase_id, "商談フェーズ" %><br />
-         <%= f.collection_select(:phase_id,Phase.all, :id, :name, {}, {class:"select-box"}) %>
-        </div>
-
-         <div class="field">
-        <%= f.label :motivation_id, "熱さレベル" %><br />
-         <%= f.collection_select(:motivation_id,Motivation.all, :id, :name, {}, {class:"select-box"}) %>
-        </div>
-
 
         <div class="actions">
           <%= f.submit "新規登録", class: :form__btn  %>
