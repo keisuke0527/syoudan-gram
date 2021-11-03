@@ -1,40 +1,120 @@
 <main class="main">
-  <div class="wrapper">
-    <div class="chat-side">
-        <%= render "side_bar" %>
-    </div>
+ <div class="wrapper">
 
-  <div class="demo">
-    <div class="demo__wrapper">
-      <p class="demo__hedding">商談詳細</p>
-      <div class="demo__body">
-          <p class="demo__caption">商談タイトル</p>
-          <p class="demo__title">
-            <%= @opportunity.title %>
-          </p>
+        <div class="chat-side">
+          <%= render partial: "side_bar" %>
+        </div>
 
-          <p class="demo__caption">商談フェーズ</p>
-           <p class="demo__neck">
-            <%= @opportunity.bottle_neck %>
-           </p>
+      <div class="demo">
+       <div class="demo__wrapper">
+          <table class="demo_table">
 
-          <p class="demo__caption">熱さレベル</p>
-           <p class="demo__neck">
-             <%= @opportunity.bottle_neck %>
-           </p>
+          <div class="demo__hedding">
+              <P class="demo_text">詳細ページ</p>
+               <% if current_user == @opportunity.user%>
+                 <div class="demo__btn">
+                <%= link_to "編集する",  edit_opportunity_path(@opportunity),class: :demo__btn %>
+               <% end %>  
+             </div>
+          </div>
+              <th class="demo__name1">投稿者</th>
+              <td class="demo__name2"><%= current_user.name%></td>
+            </tr>
+            <tr>
+              <th class="demo__name1">投稿日時</th>
+              <td class="demo__name2"><%= @opportunity.created_at.strftime('%Y年%m月%d日') %></td>
+            </tr>
+        <table class="demo_table">
+          <p class="demo__text2">商談の詳細</p>
+             <tr>
+              <th class="demo__col1">商談名</th>
+              <td class="demo__col2"><%= @opportunity.title %></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">商談フェーズ</th>
+              <td class="demo__col2"><%= @opportunity.phase.name%></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">熱さ</th>
+              <td class="demo__col2"><%= @opportunity.motivation.name %></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">ネックになっている事</th>
+              <td class="demo__col2"><%= @opportunity.bottle_neck %></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">次のアクション</th>
+              <td class="demo__col2"><%= @opportunity.next_action %></td>
+            </tr>
+          </table>
+          <table class="demo_table">
+           <p class="demo__text2">対応進捗</p>
+            <tr>
+              <th class="demo__col1">初回からの経過日数</th>
+              <td class="demo__col2"></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">初回日時</th>
+              <td class="demo__col2"><%= @opportunity.created_at.strftime('%Y年%m月%d日')%></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">初回内容</th>
+              <td class="demo__col2"><%= @opportunity.bottle_neck %></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">ネックになっている事</th>
+              <td class="demo__col2"><%= @opportunity.bottle_neck %></td>
+            </tr>
+            <tr>
+              <th class="demo__col1">次のアクション</th>
+              <td class="demo__col2"><%= @opportunity.next_action %></td>
+            </tr>
+          </table>
+        </div>  
+      </div>  
 
-          <p class="demo__caption">ネックになっている事</p>
-           <p class="demo__neck">
-             <%= @opportunity.bottle_neck %>
-           </p>
-        
-          <p class="demo__caption">次のアクション</p>
-           <p class="demo__next">
-             <%= @opportunity.next_action %>
-          </p>
-       </div>
-     </div>
-  </div>
+          <div class="comment">
+            <div class="comment__wrapper">
+              <p class="comment__title">comment</p>
+               <% if user_signed_in? %>
+                <%= form_with model: [@opportunity, @comment], local: true do |f|%>
+                  <%= render 'layouts/error_messages', model: f.object %>
+                   <div class="kind_field">
+                     <%= f.label :kind_id, "コメント種類" %><br />
+                     <%= f.collection_select(:kind_id, Kind.all, :id, :name, {}, {class:"select-box"}) %>
+                   </div>
+                   <div class="comment_field">
+                     <%= f.text_area :text, size: "70x4", class: "form-control" ,placeholder:"アドバイスやフィードバックコメントを入力してください" %>
+                   </div>
+
+                    <div class="actions">
+                      <%= f.submit "コメントする", class: :comment__btn %>
+                    </div>
+                  <% end %> 
+                 <% end %> 
+             </div>
+
+              <div class="comment__main">
+                <ul class="comments_lists">
+                  <% @comments.each do |comment| %>
+                   <div class="comments_list">
+                    <div class="balloon1">                    
+                     <div class="icon">
+                       <%= image_tag comment.user.image, class: :side__image %>
+                        </div>
+                          <div class = "comment_kind" >
+                            <%= link_to "#{comment.user.name}さんからの", user_path(comment.user), class: :comment_user %>
+                              <%= comment.kind.name %>
+                             </div>
+                              <%= comment.text %>
+                             </div>
+                            <%= link_to "#{comment.user.name}", user_path(comment.user), class: :comment_user %>
+                          <td><%= comment.created_at.strftime('%m月%d日   %H:%M') %></td>
+                        <% end %>
+                       </ul>
+                   </div>
+             
+  </div>  
 </main>
 
 

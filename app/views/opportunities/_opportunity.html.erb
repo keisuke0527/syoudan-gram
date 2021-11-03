@@ -1,9 +1,21 @@
 <div class="card">
+
   <div class="card__body">
-    <%= link_to opportunity.title, opportunity_path(opportunity), class: :text__title%>
-    <p class="card__summary">
-      <%= opportunity.bottle_neck %>
-    </p>
-    <%= link_to "by #{opportunity.user.name}", user_path(opportunity.user), class: :card__user %>
+     <%= link_to opportunity.title, opportunity_path(opportunity), class: :text__title%>
+      <div class="card__summary">
+           <%= link_to "担当者： #{opportunity.user.name}", user_path(opportunity.user), class: :user__title %>
+        <div>
+         投稿日：<%= opportunity.created_at.strftime('%Y年%m月%d日') %>
+         </div>
+         <div>
+         商談フェーズ： <%= opportunity.phase.name %>
+         </div>
+          <p>-----------------------------</p>
+         <div class="next">
+         <P>【NEXTアクション】</P>
+       <%= opportunity.bottle_neck %>
+        </div>
+      </div>
+
   </div>
 </div>

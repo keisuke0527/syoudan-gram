@@ -10,6 +10,6 @@ class Motivation < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :Opportunities
+  has_many :opportunities
 
 end

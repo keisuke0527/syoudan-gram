@@ -14,12 +14,26 @@ class OpportunitiesController < ApplicationController
     if @opportunity.save
       redirect_to root_path
     else
-      render :new
+      render 'new'
     end
   end
 
   def show
     @opportunity = Opportunity.find(params[:id])
+    @comment = Comment.new
+    @comments = @opportunity.comments
+  end
+
+  def edit
+    @opportunity = Opportunity.find(params[:id])
+  end
+
+  def update
+    if @opportunity.update(opportunity_params)
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private
