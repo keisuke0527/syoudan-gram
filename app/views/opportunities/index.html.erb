@@ -11,6 +11,7 @@
           <h3 style="border-bottom: 1px solid  #880088;border-left: 10px solid   #995588;padding: 7px; margin: 3px;">状況別</h3>
 
           <%= pie_chart Opportunity.group(:phase_id).count, id: "column-chart", width: "200px", height: "200px", colors: ["#D199FF", "#FFBA66", "#666"] %>
+          
             <table class="date_table">  
             <tr>
               <th class="date__col1"></th>
