@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :opportunities do
     resources :comments, only: :create
   end 
-   resources :users, only: :show
+   resources :users, only: [:index ,:show]
 end
