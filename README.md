@@ -1,6 +1,6 @@
 # README
-<img width="1426" alt="R画像" src="https://user-images.githubusercontent.com/82218591/140890491-61247ca7-933b-4288-b175-67c048c675e5.png" width="123" height=456px >
-![demo] (https://gyazo.com/5e6ede46d35d510a2a33b35fb5dd2e6f.gif)
+<img width="1426" alt="R画像" src="https://user-images.githubusercontent.com/82218591/140890491-61247ca7-933b-4288-b175-67c048c675e5.png" >
+
 
 ## 開発環境
 
@@ -27,8 +27,9 @@
 <br>
 
 ### 1. トップページ  
-ヘッダーの
- <img width="1076" alt="スクリーンショット 2021-11-09 17 53 35" src="https://user-images.githubusercontent.com/82218591/140892951-c843186e-277b-465b-97f0-3158f7882901.png">
+ヘッダーの  
+ <img width="1076" alt="スクリーンショット 2021-11-09 17 53 35" src="https://user-images.githubusercontent.com/82218591/140892951-c843186e-277b-465b-97f0-3158f7882901.png">  
+![demo](https://gyazo.com/ad3739b6d388ef04fb051805ccec5f5b.gif)  
 
 ### 2. ログイン、ログアウト
 （詳細）  
@@ -42,35 +43,35 @@ Ruby on railsのgemである『device』を使用し下記機能を実装しま�
 <br>
 
 ### 3. ユーザー登録、商談登録機能
-
-<img width="1005" alt="スクリーンショット 2021-11-09 18 04 38" src="https://user-images.githubusercontent.com/82218591/140894667-f8f2358a-10f4-4df9-91c2-fcc2224e9067.png">
-
 （詳細）  
 ・バリデーションを行い必須項目情報の抜け漏れを防止をしました。  
 ・バリデーションを行い入力文字数や半角、英数字等の制限をかけました。  
 ・各登録画面にはエラー表示がされるよう設定しました。  
 ・簡易項目にはプルダウンにて選択型にしました。  
-
+<img width="1005" alt="スクリーンショット 2021-11-09 18 04 38" src="https://user-images.githubusercontent.com/82218591/140894667-f8f2358a-10f4-4df9-91c2-fcc2224e9067.png">
 <br>
 <br>
 
-### 4. 詳細ページ機能
+### 4. 詳細ページ機能　　
 （詳細）    
 ・ログイン状態では『編集』ボタンを表示させ、ログインをしてない状態では表示されないよう条件分岐しています。  
 ・投稿日や経過日を記載して進捗を確認できるよう表示しました。　　
 ・重要な結論がわかる項目にしぼり表示しました
 <br>
 <br>
-
-## 【工夫機能】
-<br>
-<br>
-### 詳細画面でのチャット
-
 <img width="1009" alt="スクリーンショット 2021-11-09 18 15 33" src="https://user-images.githubusercontent.com/82218591/140896303-5b6e7ac7-12e8-4c67-8e0b-ab481d71092a.png">
+
+
+
+## 【その他機能】
+<br>  
+
+### 詳細画面でのチャット  
+
 （詳細）  
-・画面の右サイドにはチャット機能をつけてリアルタイムでやりとりができるように設定
-・コメントにはプルダウンでタイトルを選び項目を絞れるようにした
+・画面の右サイドにはチャット機能をつけてリアルタイムでやりとりができるように設定  
+・コメントにはプルダウンでタイトルを選び項目を絞れるようにした  
+![demo](https://gyazo.com/5e6ede46d35d510a2a33b35fb5dd2e6f.gif)  
  <br>
  <br>
 
