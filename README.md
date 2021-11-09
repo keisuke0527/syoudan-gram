@@ -11,8 +11,7 @@
 <br>
 <br>
 ## アプリケーション概要
-チームで商談や案件を管理し、
-相互にアドバイスなどのフィードバックをし合うアプリです。  
+営業における、チームで商談や案件を管理し、相互にアドバイスなどのフィードバックをし合うアプリです。
 <br>
 <br>
 ## 制作背景
@@ -91,7 +90,9 @@ Ruby on railsのgemである『device』を使用し下記機能を実装しま�
 <br>
 
 ### 3.KPI等のグラフ表示  
-
+(内容)  
+・Ruby on railsのgemである『Chartkick』を使用しグラフを作成しました。
+・目標や日数においては,javascriptにて計算をし、表として表示しております。
 <img width="1050" alt="スクリーンショット 2021-11-09 18 14 15" src="https://user-images.githubusercontent.com/82218591/140896525-c8592450-736f-452d-bdf2-54d67a4c5df8.png">
 
 
@@ -104,7 +105,8 @@ Ruby on railsのgemである『device』を使用し下記機能を実装しま�
 <br>
 
 # DB 設計
-
+## ER図
+<img width="753" alt="スクリーンショット 2021-11-09 19 45 23" src="https://user-images.githubusercontent.com/82218591/140910279-eda474d5-a99b-475f-a883-6f6e6ec3df48.png">
 ## users table
 
 | Column             | Type                | Options                 |
